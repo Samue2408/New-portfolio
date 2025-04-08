@@ -1,0 +1,91 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.header {
+    
+    border-bottom: solid 1px rgba($foreground-color, 0.1);
+
+    // Positioning
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    // Visual
+    background-color: rgba($background-color, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    // Misc
+    z-index: 1000;
+}
+
+.container {    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin: 0 auto;
+
+    .title {    
+        font-weight: 700;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    
+        color: transparent;
+        background-clip: text;
+        background-image: linear-gradient(to right, $principal-color, $secondary-color);
+    }
+    
+    .title_white{
+        color:$foreground-color
+    }
+    
+    .navbar {
+        display: none;
+        gap: 2rem;
+    
+        a {
+            color: rgba($foreground-color, 0.7);
+            font-weight: 500;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            transition: color 0.3s ease;
+    
+            &:hover {
+                color: $principal-color;
+            }
+        }
+    }
+    
+    
+    .curriculum {          
+        background-color: rgba($principal-color, 0.6);
+        border: solid 1px $principal-color;
+        transition: background-color 0.3s ease;
+        
+        &:hover {
+            background-color: rgba($principal-color, 0.2);
+        }
+    
+        @include buttons();
+    }
+}
+
+
+
+
+
+@media (min-width: 768px) {
+    .container{
+        .navbar {
+            display: flex;
+        }
+    }    
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1400px;
+    }
+}
