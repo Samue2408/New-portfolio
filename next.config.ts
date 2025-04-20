@@ -13,7 +13,13 @@ const nextConfig: NextConfig = {
         hostname: 'portfolio-maldonados.vercel.app',
         port: '',
         pathname: '/**',
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };

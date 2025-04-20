@@ -1,7 +1,7 @@
 @use 'variables' as *;
 
 @mixin futiristic_background(){
-    background-image: linear-gradient(to bottom, rgba($principal-color-rgb, 0.2), $background-color);
+    background-image: linear-gradient(to bottom, rgba($principal-color-rgb, 0.3)0% 20%, transparent);
 }
 
 @mixin futiristic_background_2(){
@@ -13,13 +13,12 @@
 @mixin buttons() {
     display: flex;
     align-items: center;
-
-    color: white;    
+ 
     font-weight: 600;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+    font-size: 0.7rem;
+    line-height: 0.6rem;
     
-    height: 2.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
+    height: 2rem;
+    padding: 0.3rem .6rem;
+    border-radius: 6px;    
 }
