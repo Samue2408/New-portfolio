@@ -7,6 +7,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 
 
+
 const projects = [
     {
         id: '1',
@@ -59,6 +60,27 @@ export default function Missions() {
 
     const [selectedId, setSelectedId] = useState<string | null>(null)
 
+    const addClassCardFocus = (id: string) => {
+        setSelectedId(id);
+        const cardFocus = document.getElementById('card_focus')
+        console.log('antes del if')
+        if (cardFocus) {
+            console.log(cardFocus.classList)
+            cardFocus.classList.add(`card${id}`)
+        }
+    }
+
+    const removeClassCardFocus = () => {
+        setSelectedId(null);
+        const cardFocus = document.getElementById('card_focus')
+        if (cardFocus) {
+            cardFocus.classList.remove(`card${selectedId}`)
+            setSelectedId(null);
+        }
+        
+    }
+
+
     return (
         <section id="missions" className={styles.missions}>
             <div className={styles.backgrounds}>
@@ -85,7 +107,7 @@ export default function Missions() {
                      layoutId={projects[0].id}
                      layout
                      className={styles.card}                    
-                     onClick={()=> setSelectedId(projects[0].id)}
+                     onClick={()=> addClassCardFocus(projects[0].id)}
                     >                        
                         <video height='180' >
                             <source src={projects[0].img} type='video/mp4'/>
@@ -114,7 +136,7 @@ export default function Missions() {
                              layout
                              layoutId={project.id}
                              className={styles.card}
-                             onClick={()=> setSelectedId(project.id)}
+                             onClick={()=> addClassCardFocus(project.id)}
                             >
                                 <Image 
                                     alt={project.title}
@@ -154,7 +176,7 @@ export default function Missions() {
                          layoutId={project.id}
                          className={styles.card}
                         
-                         onClick={()=> setSelectedId(project.id)}>
+                         onClick={()=> addClassCardFocus(project.id)}>
                             <Image 
                                  alt={project.title}
                                  src={project.img}
@@ -200,12 +222,16 @@ export default function Missions() {
             
             <AnimatePresence>
                 {selectedId && (
-                    <motion.div                    
+                    <motion.div        
                     className={styles.card_focus_container}
+                    initial={{
+                        paddingTop: (typeof window !== 'undefined' && window.innerWidth <= 713)
+                        ? parseInt(selectedId) * 230
+                        : 0
+                    }}
                     exit={{opacity: 0}}
                     layout
                     >
-
                         <motion.div className={styles.card_focus} layoutId={selectedId}>
                             {projects[parseInt(selectedId)-1].id === '1' ? 
 
@@ -227,7 +253,7 @@ export default function Missions() {
                                     <p>{projects[0].status}</p>
                                 </div>
                                     <article>{projects[parseInt(selectedId)-1].description}</article>
-                                <button onClick={()=>setSelectedId(null)}>X</button>
+                                <button onClick={()=>removeClassCardFocus()}>X</button>
 
                                 <div className={styles.tecnologies}>
                                     {projects[parseInt(selectedId)-1].tecnologies.map((tecno, i)=>(

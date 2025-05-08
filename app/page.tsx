@@ -26,7 +26,8 @@ export default function Home() {
       <Missions></Missions>
 
       <FloatingButton/>
-      <div className="scrol"></div>
+      <div className="scrol">
+      </div>
     </div>
 
   );
