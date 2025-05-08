@@ -58,7 +58,7 @@
                 flex-direction: column;             
                 gap: 30px;
                 .card { 
-                    width: 100%;                    
+                    width: 100%;           
                 }
             }
         }
@@ -78,19 +78,25 @@
             
             img {
                 width: 100%;
+                height: 190px;
                 border-radius: 4px 4px 0 0;
                 object-fit: cover;
             }
 
             .card_description{
                 padding-inline: 22px;
-                padding-block: 15px;
+                padding-block: 0 15px;
 
+
+                .status {
+                    justify-content: start;
+                    padding-inline: 15px;  
+                }
 
                 div {
                     display: flex;
-                    align-items: center;
-                    padding-inline: 15px;                    
+                    align-items: center; 
+                    justify-content: space-between;              
                     padding-top: 8px;
 
                     span {
@@ -107,7 +113,20 @@
                         width: max-content;
 
                     }
+                    a{
+                        display: grid;
+                        place-content: center;
+                        background-color: rgba($principal-color, .32);
+                        border-radius: 99px;
+                        padding: 5px;
+                        margin-left: 10px;
+                        .links_icon {
+                            color: rgb($principal-color);
+                        }
+
+                    }
                 }
+
 
             }
         }
@@ -167,7 +186,7 @@
 
         .card_focus {
             position: relative;
-            height: max-content;
+            height: min-content;
             background-color: rgba($background-color, 0.8);
             backdrop-filter: blur(4px);
             border: solid 1px rgba($foreground-color, .04);
@@ -181,7 +200,6 @@
 
             video {
                 width: 100%;
-                object-fit: cover;
             }
 
             .card_description{
@@ -204,7 +222,9 @@
                         font-weight: 400;
                         font-size: 12px;
                         width: max-content;
-                    }
+                    }                    
+                    
+                    
                 }
 
                 article {
@@ -235,10 +255,18 @@
                     justify-content: center;
                     flex-wrap: wrap;
                     max-width: 300px;
-                    mark {
-                        margin: 5px 10px;
-                        background-color: transparent;
-                        border: solid 1px rgba($principal-color, .8);
+                    label {                        
+                        max-width: max-content;
+                        font-size: 0.75rem;
+                        font-weight: 600;
+                        color: white;            
+                        padding: 5px 10px;
+                        border-radius: 99px;
+                        transition: background 0.3s ease-in-out;
+                        margin: 5px 10px;  
+                        z-index: 1;
+                        border: solid 1px rgba($principal-color, .8);   
+
                     }
                 }
             }
@@ -251,100 +279,45 @@
 
 @media (min-width: 713px) {
     .missions {
+
         .card_focus_container{
-            position: absolute;
             display: grid;
             place-content: center;
-            inset: 0;
-            overflow: hidden;
-            z-index: 10;
-            
-            background-color: rgba($background-color, .6);
-            backdrop-filter: blur(6px);
     
             .card_focus {
-                position: relative;
-                height: auto;
-                margin: auto;
+                max-width: min-content;
                 background-color: rgba($background-color, 0.8);
                 backdrop-filter: blur(4px);
                 border: solid 1px rgba($foreground-color, .04);
                 border-radius: 4px;
                 img {
-                    width: 100%;
-                    height: 25%;
+                    min-width: 600px;
+                    height: 334px;
                     border-radius: 4px 4px 0 0;
                     object-fit: cover;
                 }
     
                 video {
-                    width: 100%;
+                    min-width: 600px;
                     height: 350px;
-                    object-fit: cover;
                 }
     
                 .card_description{
-                    padding: 22px;
-    
-                    div {
-                        display: flex;
-                        align-items: center;
-                        padding-inline: 15px;                    
-    
-                        span {
-                            font-size: 7px;
-                            margin: 0;
-                            padding: 0;
-                        }
-                        p {
-                            margin: 0;
-                            padding-left: 5px;
-                            opacity: 70%;
-                            font-weight: 400;
-                            font-size: 12px;
-                            width: max-content;
-                        }
-                    }
     
                     article {
-                        max-width: 490px;
-                        font-size: 15px;
-                        margin: auto;
-                        text-align: justify;
-                        margin-top: 20px;
-                        padding-inline: 5px;                    
-                    }
-    
-                    button {
-                        position: absolute;
-                        top: 4px;
-                        right: 4px;
-                        padding: 7px 10px;
-                        border-radius: 50%;
-                        border: none;
-                        background-color: rgba($principal-color, .8);
-                        color: white;
-                        cursor: pointer;
+                        max-width: 490px;                  
                     }
     
                     .tecnologies {
-                        margin-top: 20px;
-                        margin-inline: auto;
-                        padding: 0;
-                        justify-content: center;
-                        flex-wrap: wrap;
                         max-width: 500px;
-                        mark {
-                            margin: 5px 10px;
-                            background-color: transparent;
-                            border: solid 1px rgba($principal-color, .8);
-                        }
+                        
                     }
                 }
     
             }
     
         }
+
     }
 
 }
@@ -393,7 +366,7 @@
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1050px) {
     .missions{
         .cards_container {    
             

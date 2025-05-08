@@ -1,6 +1,7 @@
 'use client'
 
 import styles from './missions.module.scss';
+import { LuExternalLink, LuGithub } from "react-icons/lu";
 import * as motion from "motion/react-client";
 import { AnimatePresence } from "motion/react";
 import { useState } from 'react';
@@ -113,10 +114,25 @@ export default function Missions() {
                             <source src={projects[0].img} type='video/mp4'/>
                         </video>                            
                         <div className={styles.card_description}>
-                            <h3>{projects[0].title}</h3>
                             <div>
+
+                                <h3>{projects[0].title}</h3>
+                                <div>
+                                    <a href="">
+                                        <LuGithub className={styles.links_icon}></LuGithub> 
+                                    </a>
+                                    <a href="">
+                                        <LuExternalLink className={styles.links_icon}></LuExternalLink>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <div className={styles.status}>
                                 {projects[0].deployed ? <span>🟢</span> :  <span>🔵</span>}
                                 <p>{projects[0].status}</p>
+                                
+                                
                             </div>
                         </div>
                     </motion.div>
@@ -141,12 +157,22 @@ export default function Missions() {
                                 <Image 
                                     alt={project.title}
                                     src={project.img}
-                                    width={280}
-                                    height={190}
+                                    width={1000}
+                                    height={600}
                                     />
                                 <div className={styles.card_description}>
-                                    <h3>{project.title}</h3>
                                     <div>
+                                        <h3>{project.title}</h3>
+                                        <div>
+                                            <a href="">
+                                                <LuGithub className={styles.links_icon}></LuGithub> 
+                                            </a>
+                                            <a href="">
+                                                <LuExternalLink className={styles.links_icon}></LuExternalLink>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div className={styles.status}>
                                         {project.deployed ? <span>🟢</span> :  <span>🔵</span>}
                                         <p>{project.status}</p>
                                     </div>
@@ -180,13 +206,23 @@ export default function Missions() {
                             <Image 
                                  alt={project.title}
                                  src={project.img}
-                                 width={280}
-                                 height={190}
+                                 width={1000}
+                                 height={600}
                                 />
                             <div className={styles.card_description}>
 
-                                <h3>{project.title}</h3>
-                                <div >
+                                <div>
+                                    <h3>{project.title}</h3>
+                                    <div>
+                                        <a href="">
+                                            <LuGithub className={styles.links_icon}></LuGithub> 
+                                        </a>
+                                        <a href="">
+                                            <LuExternalLink className={styles.links_icon}></LuExternalLink>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className={styles.status}>
                                     {project.deployed ? <span>🟢</span> :  <span>🔵</span>}
                                     <p>{project.status}</p>
                                 </div>
@@ -229,10 +265,10 @@ export default function Missions() {
                         ? parseInt(selectedId) * 230
                         : 0
                     }}
-                    exit={{opacity: 0}}
+                    exit={{opacity: 0, transition: {delay: 0.25}}}
                     layout
                     >
-                        <motion.div className={styles.card_focus} layoutId={selectedId}>
+                        <motion.div className={styles.card_focus} layoutId={selectedId} exit={{opacity: 0, scale: 0.7}}>
                             {projects[parseInt(selectedId)-1].id === '1' ? 
 
                                 <video height='200' controls >
@@ -242,8 +278,8 @@ export default function Missions() {
                                 :<Image 
                                  alt={projects[parseInt(selectedId)-1].title}
                                  src={projects[parseInt(selectedId)-1].img}
-                                 width={280}
-                                 height={190}
+                                 width={2000}
+                                 height={1200}
                                 />
                             }
                             <div className={styles.card_description}>
@@ -257,9 +293,9 @@ export default function Missions() {
 
                                 <div className={styles.tecnologies}>
                                     {projects[parseInt(selectedId)-1].tecnologies.map((tecno, i)=>(
-                                        <mark key={i}>
+                                        <label key={i}>
                                             {tecno}
-                                        </mark>
+                                        </label>
                                     ))}
                                 </div>
 

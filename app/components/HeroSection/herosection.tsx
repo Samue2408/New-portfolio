@@ -19,7 +19,7 @@ export default function HeroSection() {
                     <h1>SAMUEL <span>MALDONADO</span> </h1>
                     <p> <span>SYSTEMS Engineer</span>, FULL STACK & App Developer.</p>
                     <div>
-                        <a  href="#projects" className={styles.button}>View projects</a>
+                        <a  href="#missions" className={styles.button}>View projects</a>
                         <a  href="#contact" className={styles.button2}>Contact me</a>
                     </div>
                 </div>

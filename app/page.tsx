@@ -20,10 +20,11 @@ export default function Home() {
           <HeroSection></HeroSection>           
         </motion.div>        
       </AnimatePresence>
+      
+      <Missions></Missions>
 
       <ToolBox/>
 
-      <Missions></Missions>
 
       <FloatingButton/>
       <div className="scrol">
