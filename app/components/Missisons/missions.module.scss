@@ -49,7 +49,7 @@
             display: flex;
             flex-direction: column;
             gap: 30px;
-            video {
+            .card1_img {
                 width: 100%;
                 object-fit: cover;
             }
@@ -75,22 +75,48 @@
             border: solid 1px rgba($foreground-color, .04);
             border-radius: 4px;
             cursor: pointer;
-            
+
+            .img_container {
+                position: relative;
+            }
             img {
                 width: 100%;
                 height: 190px;
                 border-radius: 4px 4px 0 0;
                 object-fit: cover;
             }
+            
+
+            .links_icon_container {
+                position: absolute;
+                display: flex;
+                bottom: 0;
+                right: 0;
+                padding: 15px 10px;
+                gap: 5px;
+                overflow: hidden;
+                a {
+                    
+                    display: flex;
+                    align-items: center;
+                    background-color: black;
+                    border-radius: 99px;
+                    padding: 5px;
+                    .links_icon {
+                        color: rgb($principal-color);
+                    }
+                }
+            }
 
             .card_description{
                 padding-inline: 22px;
-                padding-block: 0 15px;
+                padding-block: 10px 15px;
 
 
                 .status {
                     justify-content: start;
-                    padding-inline: 15px;  
+                    padding-inline: 8px; 
+                    padding-top: 0; 
                 }
 
                 div {
@@ -113,21 +139,8 @@
                         width: max-content;
 
                     }
-                    a{
-                        display: grid;
-                        place-content: center;
-                        background-color: rgba($principal-color, .32);
-                        border-radius: 99px;
-                        padding: 5px;
-                        margin-left: 10px;
-                        .links_icon {
-                            color: rgb($principal-color);
-                        }
-
-                    }
+                    
                 }
-
-
             }
         }
 
@@ -231,7 +244,6 @@
                     max-width: 300px;
                     font-size: 15px;
                     margin: auto;
-                    text-align: justify;
                     margin-top: 20px;
                     padding-inline: 5px;                    
                 }
@@ -327,7 +339,7 @@
         .cards_container { 
 
             .cards1 {
-                video {
+                .card1_img {
                     height: 350px;
                 }
     

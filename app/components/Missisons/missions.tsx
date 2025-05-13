@@ -1,23 +1,25 @@
 'use client'
 
 import styles from './missions.module.scss';
-import { LuExternalLink, LuGithub } from "react-icons/lu";
+import { FaGithub } from "react-icons/fa";
+import { MdLanguage } from "react-icons/md";
+import { LuGithub } from "react-icons/lu";
 import * as motion from "motion/react-client";
 import { AnimatePresence } from "motion/react";
 import { useState } from 'react';
 import Image from 'next/image';
 
-
-
 const projects = [
     {
         id: '1',
-        img: 'https://res.cloudinary.com/dcnm1frkz/video/upload/v1744913513/V%C3%ADdeo_sin_t%C3%ADtulo_Hecho_con_Clipchamp_anwemt.mp4',
+        img: '/classroomProject.webp',
+        video: 'https://res.cloudinary.com/dcnm1frkz/video/upload/v1744913513/V%C3%ADdeo_sin_t%C3%ADtulo_Hecho_con_Clipchamp_anwemt.mp4',
         title: 'Work Plan Managament',
         deployed: false,
         status: 'Code complete, slepp deprived',
         description: 'A project management tool that helps teams plan, track, and manage their work.',
-        tecnologies: ['MySQL', 'Python', 'Flask', 'Javascript', 'HTML', 'CSS', ]
+        tecnologies: ['MySQL', 'Python', 'Flask', 'Javascript', 'HTML', 'CSS'],
+        github: 'https://github.com/MauricioMolina12/ClassroomProject'
     },
     {
         id: '2',
@@ -26,7 +28,8 @@ const projects = [
         deployed: false,
         status: 'No domain, no fame',
         description: 'A web application that helps users manage their vehicle maintenance and repairs.',
-        tecnologies: ['Flutter']
+        tecnologies: ['Flutter'],
+        github: 'https://github.com/Samue2408/VehicleCare'
     },
     {
         id: '3',
@@ -35,7 +38,9 @@ const projects = [
         deployed: true,
         status: 'Stable, but outdated',
         description: 'A personal portfolio website that showcases my work and skills.',
-        tecnologies: ['React', 'SCSS']
+        tecnologies: ['React', 'SCSS'],
+        github: 'https://github.com/Samue2408/Portafolio',
+        web: 'https://portfolio-maldonados.vercel.app/'
     },
     {
         id: '4',
@@ -44,7 +49,9 @@ const projects = [
         deployed: true,
         status: 'Live, but evolving',
         description: 'Web application for a backery where customers can view products and their most relevant information.',
-        tecnologies: ['Next.js', 'React', 'Tailwind CSS', 'Cloudinary']
+        tecnologies: ['Next.js', 'React', 'Tailwind CSS', 'Cloudinary'],
+        github: 'https://github.com/Samue2408/M-M-page',
+        web: 'https://mym-page.vercel.app/'
     },
     {
         id: '5',
@@ -53,7 +60,9 @@ const projects = [
         deployed: false,
         status: 'Production-ready & proud',
         description: 'Car rental applicarion with security by hashing passwords and using authenticacition tokens',
-        tecnologies: ['Angular', 'Node.js', 'MySQL']
+        tecnologies: ['Angular', 'Node.js', 'MySQL'],
+        github: 'https://github.com/Samue2408/Reserva_Vehiculos',
+        github_backend: 'https://github.com/MauricioMolina12/Node-JS-Proyect'
     }
 ]
 
@@ -88,7 +97,7 @@ export default function Missions() {
                 <div className={styles.botton}></div>
             </div> 
             <mark>MISSIONS</mark>
-            <p>A.K.A. PTOJECTS (tap to see more)</p>
+            <p>A.K.A. PROJECTS (tap to see more)</p>
 
             <motion.div             
              className={styles.cards_container}
@@ -109,30 +118,26 @@ export default function Missions() {
                      layout
                      className={styles.card}                    
                      onClick={()=> addClassCardFocus(projects[0].id)}
-                    >                        
-                        <video height='180' >
-                            <source src={projects[0].img} type='video/mp4'/>
-                        </video>                            
+                    >         
+                        <div className={styles.img_container} >
+                            <Image 
+                                className={styles.card1_img}
+                                alt={projects[0].title}
+                                src={projects[0].img}
+                                width={1000}
+                                height={600}
+                            />              
+                            <motion.div className={styles.links_icon_container}>
+                                <a target='blank' href={projects[0].github}>
+                                    <FaGithub className={styles.links_icon}></FaGithub>
+                                </a>
+                            </motion.div >            
+                        </div>               
                         <div className={styles.card_description}>
-                            <div>
-
                                 <h3>{projects[0].title}</h3>
-                                <div>
-                                    <a href="">
-                                        <LuGithub className={styles.links_icon}></LuGithub> 
-                                    </a>
-                                    <a href="">
-                                        <LuExternalLink className={styles.links_icon}></LuExternalLink>
-                                    </a>
-                                </div>
-
-                            </div>
-
                             <div className={styles.status}>
                                 {projects[0].deployed ? <span>🟢</span> :  <span>🔵</span>}
                                 <p>{projects[0].status}</p>
-                                
-                                
                             </div>
                         </div>
                     </motion.div>
@@ -154,24 +159,27 @@ export default function Missions() {
                              className={styles.card}
                              onClick={()=> addClassCardFocus(project.id)}
                             >
-                                <Image 
-                                    alt={project.title}
-                                    src={project.img}
-                                    width={1000}
-                                    height={600}
+                                <div className={styles.img_container}>
+                                    <Image 
+                                        alt={project.title}
+                                        src={project.img}
+                                        width={1000}
+                                        height={600}
                                     />
+                                    <motion.div  className={styles.links_icon_container}>
+                                        <a target='blank' href={project.github}>
+                                            <FaGithub className={styles.links_icon}></FaGithub> 
+                                        </a>
+
+                                        {project.web && 
+                                            <a target='blank' href={project.web}>
+                                                <MdLanguage className={styles.links_icon}></MdLanguage>
+                                            </a>
+                                        }
+                                    </motion.div > 
+                                </div>
                                 <div className={styles.card_description}>
-                                    <div>
-                                        <h3>{project.title}</h3>
-                                        <div>
-                                            <a href="">
-                                                <LuGithub className={styles.links_icon}></LuGithub> 
-                                            </a>
-                                            <a href="">
-                                                <LuExternalLink className={styles.links_icon}></LuExternalLink>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <h3>{project.title}</h3>
                                     <div className={styles.status}>
                                         {project.deployed ? <span>🟢</span> :  <span>🔵</span>}
                                         <p>{project.status}</p>
@@ -203,25 +211,34 @@ export default function Missions() {
                          className={styles.card}
                         
                          onClick={()=> addClassCardFocus(project.id)}>
-                            <Image 
-                                 alt={project.title}
-                                 src={project.img}
-                                 width={1000}
-                                 height={600}
+                            <div className={styles.img_container}>
+                                <Image 
+                                    alt={project.title}
+                                    src={project.img}
+                                    width={1000}
+                                    height={600}
                                 />
+                                <motion.div className={styles.links_icon_container}>
+                                    <a title='fronted' target='blank' href={project.github}>
+                                        <FaGithub className={styles.links_icon}></FaGithub> 
+                                    </a>
+
+                                    {project.github_backend && 
+                                        <a title='backend' target='blank' href={project.github_backend}>
+                                            <LuGithub className={styles.links_icon}></LuGithub>
+                                        </a>
+                                    }
+                                    
+                                    {project.web && 
+                                        <a target='blank' href={project.web}>
+                                            <MdLanguage className={styles.links_icon}></MdLanguage>
+                                        </a>
+                                    }
+                                </motion.div> 
+                            </div>
                             <div className={styles.card_description}>
 
-                                <div>
-                                    <h3>{project.title}</h3>
-                                    <div>
-                                        <a href="">
-                                            <LuGithub className={styles.links_icon}></LuGithub> 
-                                        </a>
-                                        <a href="">
-                                            <LuExternalLink className={styles.links_icon}></LuExternalLink>
-                                        </a>
-                                    </div>
-                                </div>
+                                <h3>{project.title}</h3>
                                 <div className={styles.status}>
                                     {project.deployed ? <span>🟢</span> :  <span>🔵</span>}
                                     <p>{project.status}</p>
@@ -272,10 +289,11 @@ export default function Missions() {
                             {projects[parseInt(selectedId)-1].id === '1' ? 
 
                                 <video height='200' controls >
-                                   <source src={projects[parseInt(selectedId)-1].img} type='video/mp4'/>
+                                   <source src={projects[parseInt(selectedId)-1].video} type='video/mp4'/>
                                 </video>  
 
-                                :<Image 
+                                :
+                                <Image 
                                  alt={projects[parseInt(selectedId)-1].title}
                                  src={projects[parseInt(selectedId)-1].img}
                                  width={2000}
@@ -297,6 +315,26 @@ export default function Missions() {
                                             {tecno}
                                         </label>
                                     ))}
+                                </div>
+
+                                <div>
+                                    <motion.div className={styles.links_icon_container}>
+                                    <a title='fronted' target='blank' href={projects[parseInt(selectedId)-1].github}>
+                                        <FaGithub className={styles.links_icon}></FaGithub> 
+                                    </a>
+
+                                    {projects[parseInt(selectedId)-1].github_backend && 
+                                        <a title='backend' target='blank' href={projects[parseInt(selectedId)-1].github_backend}>
+                                            <LuGithub className={styles.links_icon}></LuGithub>
+                                        </a>
+                                    }
+                                    
+                                    {projects[parseInt(selectedId)-1].web && 
+                                        <a target='blank' href={projects[parseInt(selectedId)-1].web}>
+                                            <MdLanguage className={styles.links_icon}></MdLanguage>
+                                        </a>
+                                    }
+                                </motion.div> 
                                 </div>
 
                             </div>
