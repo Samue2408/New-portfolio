@@ -6,7 +6,8 @@
   --foreground-color: 255, 255, 255;
   --principal-color: 24, 210, 111;
   --principal-color-rgb: 23, 113, 64;
-  --secondary-color: 6, 182, 212
+  --secondary-color: 6, 182, 212;
+  --border-color: 30, 30, 30;
 }
 
 
@@ -38,9 +39,10 @@ body {
 
 body.light_mode {
   --background-color: 250, 250, 250;
-  --foreground-color: 30, 30, 30;
+  --foreground-color: 0, 0, 0;
   --principal-color: 24, 210, 111;
   --principal-color-rgb: 24, 210, 111;
+  --border-color: 210, 210, 210;
   
 }
 
