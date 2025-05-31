@@ -128,7 +128,7 @@ export default function Missions() {
                                 height={600}
                             />              
                             <motion.div className={styles.links_icon_container}>
-                                <a target='blank' href={projects[0].github}>
+                                <a title='github' target='blank' href={projects[0].github}>
                                     <FaGithub className={styles.links_icon}></FaGithub>
                                 </a>
                             </motion.div >            
@@ -167,12 +167,12 @@ export default function Missions() {
                                         height={600}
                                     />
                                     <motion.div  className={styles.links_icon_container}>
-                                        <a target='blank' href={project.github}>
+                                        <a title='github' target='blank' href={project.github}>
                                             <FaGithub className={styles.links_icon}></FaGithub> 
                                         </a>
 
                                         {project.web && 
-                                            <a target='blank' href={project.web}>
+                                            <a title='web' target='blank' href={project.web}>
                                                 <MdLanguage className={styles.links_icon}></MdLanguage>
                                             </a>
                                         }
@@ -219,7 +219,7 @@ export default function Missions() {
                                     height={600}
                                 />
                                 <motion.div className={styles.links_icon_container}>
-                                    <a title='fronted' target='blank' href={project.github}>
+                                    <a title='frontend' target='blank' href={project.github}>
                                         <FaGithub className={styles.links_icon}></FaGithub> 
                                     </a>
 
@@ -230,7 +230,7 @@ export default function Missions() {
                                     }
                                     
                                     {project.web && 
-                                        <a target='blank' href={project.web}>
+                                        <a title='web' target='blank' href={project.web}>
                                             <MdLanguage className={styles.links_icon}></MdLanguage>
                                         </a>
                                     }

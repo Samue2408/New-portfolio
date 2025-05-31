@@ -13,9 +13,9 @@ export default function Navbar(){
                 </Link>
                 <nav className={styles.navbar}>
                     <a href="#home">Home</a>
-                    <a href="#toolBox">Toolbox</a>
                     <a href="#missions">Missions</a>
-                    <a href="#projects">Whoami</a>
+                    <a href="#toolBox">Toolbox</a>
+                    <a href="#whoami">Whoami</a>
                     <a href="#contact">Ping me</a>
                 </nav>
                 <a target='blank' href='hojadevida.pdf' className={styles.curriculum}>Download CV</a>

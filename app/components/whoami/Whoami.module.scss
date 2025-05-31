@@ -1,0 +1,116 @@
+@use '../../styles/variables' as *;
+
+.whoami {
+
+    width: 100%;
+    display: grid;
+    place-content: center;
+    padding-block: 150px;
+    margin: auto;
+    position: relative;
+
+    p {
+        margin: 30px 20px;
+        font-size: 14px;
+        text-align: center;
+        z-index: 1;
+    }
+
+    .terminal_container {
+        background-color: rgba($principal-color-rgb, 0.05);
+        backdrop-filter: blur(4px);
+        border: solid 1px rgb($border-color);
+        border-radius: 4px;
+        transition: border 0.3s ease-in-out;
+        margin: 0 auto;
+        max-width: 90%;
+
+        header {
+            font-weight: 400;
+            color: rgba($foreground-color, .78);
+            background-color: rgba($border-color);
+            padding: 8px 11px;
+            font-size: 10px;
+            border-radius: 2px 2px 0 0;
+        }
+
+        div {
+            margin: 0 15px 15px 15px;
+            text-align: start;
+
+            sub {
+                font-size: 10px;
+                font-weight: 200;
+            }
+
+            article{
+                font-family: var(--font-roboto-mono);
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 2.15;
+
+                &:has(em) {                    
+                  margin-top: 10px;
+                }
+
+                em {
+                    margin-top: 20px;
+                    color: rgb($principal-color);
+                    font-style: normal;
+                }
+
+                span {
+                    color: #F89B05;
+                }
+            }
+        }
+    }
+    
+}
+
+@media (min-width: 768px) {
+    .whoami {
+        .terminal_container {
+            header {
+                font-size: 12px;
+                padding: 8px 22px;
+            }
+            
+            div {
+                margin: 0 30px 40px 30px;
+                sub {
+                    font-size: 12px;
+                }
+                article {
+                    font-size: 17px;
+                    line-height: 2;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1050px) {
+    .whoami {
+        .terminal_container {
+            
+            div {
+                article {
+                    font-size: 20px;
+                    line-height: 2;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1400px) {   
+    
+    .whoami {
+        .terminal_container {
+            max-width: 1000px;
+        }        
+        
+    }
+    
+}

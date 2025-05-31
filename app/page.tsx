@@ -5,6 +5,7 @@ import HeroSection from "./components/HeroSection/herosection";
 import Navbar from "./components/Navbar/navbar";
 import ToolBox from "./components/ToolBox/toolBox";
 import Missions from "./components/Missisons/missions";
+import Whoami from "./components/whoami/Whoami";
 
 export default function Home() {
   return (
@@ -25,9 +26,16 @@ export default function Home() {
 
       <ToolBox/>
 
+      <div className="tw-sections">
+        <div className='backgrounds'>
+        </div>
+        <Whoami/>
+        
+        <div className="scrol">
+      </div>
+
 
       <FloatingButton/>
-      <div className="scrol">
       </div>
     </div>
 
