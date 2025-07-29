@@ -50,7 +50,8 @@ export default function TypingText({ text, speed = 500, className = '' }: Typing
   return (
     <motion.span
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1, transition: {duration: 0.8}  }}      
+      whileInView={{ opacity: 1, transition: {duration: 0.8}  }} 
+      viewport={{ once: true }}     
       className={className}
       ref={ref}
     >
