@@ -90,25 +90,12 @@
     }
 }
 
-@media (min-width: 1050px) {
-    .whoami {
-        .terminal_container {
-            
-            div {
-                article {
-                    font-size: 20px;
-                    line-height: 2;
-                }
-            }
-        }
-    }
-}
 
 @media (min-width: 1400px) {   
     
     .whoami {
         .terminal_container {
-            max-width: 1000px;
+            max-width: 900px;
         }        
         
     }
