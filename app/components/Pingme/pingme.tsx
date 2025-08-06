@@ -5,9 +5,35 @@ import { GoLocation } from "react-icons/go";
 import { FaGithub } from "react-icons/fa";
 import { FaQuestion   } from "react-icons/fa6";
 import { RiLinkedinBoxFill } from "react-icons/ri";
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+
 
 
 export default function Pingme() {
+    const form = useRef<HTMLFormElement>(null);
+
+    const sendEmail = (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+
+        if (form.current) {
+            emailjs.sendForm(
+                "service_6wf4ufc",
+                "template_wkrl2um",
+                form.current,
+                "R7lnPO-Q2aBEcXphN"
+            )
+            .then((result) => {
+                console.log('Email enviado:', result.text);
+                alert('Correo enviado correctamente');
+            }, (error) => {
+                console.error('Error al enviar:', error.text);
+                alert('Error al enviar el correo');
+            });
+        } else {
+            alert('Form reference is not available.');
+        }
+    };
     return (
         <section className={styles.pingme} id="pingme">
             <div className={styles.details}>
@@ -55,7 +81,7 @@ export default function Pingme() {
 
             </div>           
                 
-            <form className={styles.contact_form}>
+            <form className={styles.contact_form} ref={form} onSubmit={sendEmail}>
                 <h3>
                     LET’S GET IN <span>TOUCH</span>
                 </h3>
