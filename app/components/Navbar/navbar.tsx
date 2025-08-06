@@ -16,7 +16,7 @@ export default function Navbar(){
                     <a href="#missions">Missions</a>
                     <a href="#toolBox">Toolbox</a>
                     <a href="#whoami">Whoami</a>
-                    <a href="#contact">Ping me</a>
+                    <a href="#pingme">Ping me</a>
                 </nav>
                 <a target='blank' href='hojadevida.pdf' className={styles.curriculum}>Download CV</a>
             </div>

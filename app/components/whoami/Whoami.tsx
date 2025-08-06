@@ -19,10 +19,10 @@ export default function Whoami() {
             <header>samuel@portfolio-Ubuntu: ~</header>            
             <motion.div>
                 <sub>Ubuntu 18.04.4 LTS ubuntu tty3</sub>
-                <article><em>samuel@portfolio-Ubuntu:~</em>$ <TypingText text='whoami' speed={200} className="text-2xl"></TypingText></article>
+                <article><em>samuel@portfolio-Ubuntu:~</em>$ <TypingText text='whoami' speed={200}></TypingText></article>
                 <motion.article
                     initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1, transition:{ duration: .1, delay: 1.6 } }}
+                    whileInView={{ opacity: 1, transition:{ duration: 0.01, delay: 1.6 } }}
                     viewport={{ once: true }}
                 >
                     -&gt; Hey, I’m Samuel 👋  
@@ -42,11 +42,9 @@ export default function Whoami() {
                 >
                     <em>samuel@portfolio-Ubuntu:~</em>$
                     <motion.span
-                    className="inline-block w-[1px] h-[1em] bg-white ml-1 animate-blink"
-                    animate={{ opacity: [0.3, 1, 0] }}
-                    transition={{ repeat: Infinity, duration: 1 }}
-                    >|
-                    </motion.span>
+                     animate={{ opacity: [0, 1, 0] }}
+                     transition={{ repeat: Infinity, duration: 1 }}          
+                    >|</motion.span>
                 </motion.article>
             </motion.div>
 

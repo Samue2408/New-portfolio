@@ -1,0 +1,218 @@
+@use '../../styles/variables' as *;
+
+.pingme {
+    position: relative;
+    padding-bottom: 100px;
+    margin: auto;
+    max-width: 85%;
+
+    h3 {
+        line-height: 1.2;
+        transition: color 0.3s ease-in-out;
+        span {
+            color: transparent;
+            background-clip: text;
+            background-image: linear-gradient(
+                to right, 
+                rgb($principal-color),
+                rgb($secondary-color)
+            );
+        }
+    }
+    .details {
+        margin: auto;
+
+        h3 {
+            margin-block: 20px 10px;
+            font-size: 28px;
+        }
+        p {
+            font-weight: 400;
+            font-size: 13px;
+        }
+
+        a {                    
+            display: flex;
+            align-items: center;
+            background-color: rgba($principal-color, 0.3);
+            border-radius: 99px;
+            padding: 5px;                
+            color: rgb($principal-color);
+            
+        }
+
+        small {
+            font-size: 10px;
+            color: rgba($foreground-color, 0.5);
+            line-height: 1.2;
+        }
+        big {
+            line-height: 1;
+            font-size: 14px;
+        }
+
+        .info {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            
+            div {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                
+            }
+        }
+        .container_social {
+            margin-top: 15px;
+            .social {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-top: 10px;
+    
+                a {
+                    color: rgb($principal-color);
+                    font-size: 20px;
+                    transition: color 0.3s ease-in-out;
+    
+                    &:hover {
+                        color: rgb($secondary-color);
+                    }
+                }
+            }
+        }
+
+
+        
+
+    }
+
+    .contact_form {
+        height: 100%;
+        margin-top: 50px;
+        padding: 20px;
+        border: solid 1px rgb($border-color);
+        border-radius: 12px;
+        background-color: rgba($foreground-color, 0.05);
+
+        h3 {
+            margin-bottom: 10px;
+        }
+        
+        label {
+            font-size: 12px;
+            line-height: 1.1;
+            color: rgba($foreground-color, 0.5);               
+        }
+
+        input, textarea {
+            width: 100%;
+            background-color: rgba($background-color, 0.5);
+            border: none;
+            border-radius: 6px;
+            resize: none;
+            padding: 8px;
+            margin-bottom: 5px;
+            font-size: 11px;
+            color: rgb($foreground-color);
+            &:focus {
+                outline: none;
+                border: solid 1px rgba($principal-color, 0.3);
+            }
+            &::placeholder {
+                color: rgba($foreground-color, 0.2);
+            }
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        .form_button {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            button {
+                width: 50%;
+                color: rgb($foreground-color);
+                font-weight: 700;
+                font-size: 12px;
+                border: none;
+                border-radius: 6px;
+                padding: 8px;
+                background: linear-gradient(
+                    to right, 
+                    rgb($principal-color),
+                    rgb($secondary-color)
+                );
+            }
+        }
+
+        
+    }
+}
+
+
+
+
+@media (min-width: 768px) {   
+    .pingme {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+
+        .contact_form {
+            margin-top: 0;
+        }
+    }
+}
+
+@media (min-width: 1100px) {  
+    .pingme {
+        .details {
+            h3 {
+                font-size: 32px;
+            }
+        }
+        .contact_form {
+            h3 {
+                font-size: 24px;
+            }
+            input, textarea {
+                font-size: 12px;            
+                &::placeholder {
+                    color: rgba($foreground-color, 0.2);
+                }
+            }
+            .form_button {
+                button {
+                    
+                    font-size: 15px;
+                    
+                }
+            }
+        }
+    }     
+    
+}
+
+@media (min-width: 1400px) {   
+    
+    .pingme {
+        gap: 28px;
+        max-width: 1100px;
+        .details {
+            h3 {
+                font-size: 36px;
+            }
+            p {
+                font-size: 14px;
+            }
+        }        
+    }
+    
+}

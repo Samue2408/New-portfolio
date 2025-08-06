@@ -23,7 +23,7 @@
         border-radius: 4px;
         transition: border 0.3s ease-in-out;
         margin: 0 auto;
-        max-width: 90%;
+        max-width: 85%;
 
         header {
             font-weight: 400;
@@ -61,6 +61,14 @@
 
                 span {
                     color: #F89B05;
+                }
+
+                .blinkingCursor {
+                    display: inline-block;
+                    width: 1px;
+                    height: 1em;
+                    background-color: white;
+                    margin-left: 4px;
                 }
             }
         }

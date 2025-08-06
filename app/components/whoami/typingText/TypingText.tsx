@@ -57,7 +57,6 @@ export default function TypingText({ text, speed = 500, className = '' }: Typing
     >
       {displayedText}
       <motion.span
-        className="inline-block w-[1px] h-[1em] bg-white ml-1 animate-blink"
         key={displayedText.length}
         animate={{ opacity: [0.3, 1, 0] }}
         transition={{ duration: 1 }}

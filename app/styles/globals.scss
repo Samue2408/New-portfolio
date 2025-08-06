@@ -99,6 +99,7 @@ mark {
 .tw-sections {
   position: relative;
   .backgrounds {
+    z-index: 0;
     position: absolute;
     inset: 0;
     background-image: linear-gradient(

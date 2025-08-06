@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/navbar";
 import ToolBox from "./components/ToolBox/toolBox";
 import Missions from "./components/Missisons/missions";
 import Whoami from "./components/whoami/Whoami";
+import Pingme from "./components/Pingme/pingme";
 
 export default function Home() {
   return (
@@ -30,12 +31,8 @@ export default function Home() {
         <div className='backgrounds'>
         </div>
         <Whoami/>
-        
-        <div className="scrol">
-      </div>
-
-
-      <FloatingButton/>
+        <Pingme/>
+        <FloatingButton/>
       </div>
     </div>
 
