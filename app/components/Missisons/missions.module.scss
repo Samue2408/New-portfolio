@@ -181,11 +181,7 @@
                     }
                 }
             }
-
-
         }
-
-
     }  
 
     .card_focus_container{
@@ -219,11 +215,27 @@
 
             .card_description{
                 padding: 22px;
+                .links_icon_container {
+                    display: flex;
+                    width: min-content;
+                    margin-left: auto;
+                    gap: 5px;       
+                    a {                        
+                        display: flex;
+                        align-items: center;
+                        background-color: black;
+                        border-radius: 99px;
+                        padding: 5px;
+                        .links_icon {
+                            color: rgb($principal-color);
+                        }
+                    }
+                }
 
                 div {
                     display: flex;
                     align-items: center;
-                    padding-inline: 15px;                    
+                    padding-inline: 15px;              
 
                     span {
                         font-size: 7px;
@@ -237,11 +249,8 @@
                         font-weight: 400;
                         font-size: 12px;
                         width: max-content;
-                    }                    
-                    
-                    
+                    }                           
                 }
-
                 article {
                     max-width: 300px;
                     font-size: 15px;
@@ -249,7 +258,6 @@
                     margin-top: 20px;                    
                     padding-inline: 5px;                    
                 }
-
                 button {
                     position: absolute;
                     top: 4px;
@@ -261,9 +269,8 @@
                     color: white;
                     cursor: pointer;
                 }
-
                 .tecnologies {
-                    margin-block: 20px;
+                    margin-top: 20px;
                     margin-inline: auto;
                     padding: 0;
                     justify-content: center;
@@ -273,7 +280,7 @@
                         max-width: max-content;
                         font-size: 0.75rem;
                         font-weight: 600;
-                        color: white;            
+                        color: rgb($foreground-color);            
                         padding: 5px 10px;
                         border-radius: 99px;
                         transition: background 0.3s ease-in-out;
@@ -284,20 +291,15 @@
                     }
                 }
             }
-
         }
-
     }
-
 }
 
 @media (min-width: 713px) {
     .missions {
-
         .card_focus_container{
             display: grid;
             place-content: center;
-    
             .card_focus {
                 max-width: min-content;
                 background-color: rgba($background-color, 0.8);
@@ -310,41 +312,30 @@
                     border-radius: 4px 4px 0 0;
                     object-fit: cover;
                 }
-    
                 video {
                     min-width: 600px;
                     height: 350px;
                 }
-    
                 .card_description{
-    
                     article {
                         max-width: 490px;                  
                     }
-    
                     .tecnologies {
                         max-width: 500px;
-                        
                     }
                 }
-    
             }
-    
         }
-
     }
-
 }
 
 @media (min-width: 768px) {
     .missions{
         .cards_container { 
-
             .cards1 {
                 .card1_img {
                     height: 350px;
                 }
-    
                 .cards2 {
                     flex-direction: row;
                     .card {
@@ -352,7 +343,6 @@
                     }
                 }
             }
-
             .cards3 {
                 flex-direction: row;
                 justify-content: center;
@@ -374,16 +364,12 @@
                 }    
             }
         }
-
-      
-
     }
 }
 
 @media (min-width: 1050px) {
     .missions{
-        .cards_container {    
-            
+        .cards_container {
             .cards3 {
                 flex-direction: column;
                 flex-wrap: nowrap;
@@ -396,18 +382,13 @@
                 }    
             }
         }
-
-        
     }
 }
 
 @media (min-width: 1400px) {   
-    
     .missions {
         .cards_container {
             max-width: 1400px;
-        }        
-        
+        }     
     }
-    
 }

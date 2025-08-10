@@ -34,8 +34,8 @@ body {
 body.light_mode {
   --background-color: 250, 250, 250;
   --foreground-color: 0, 0, 0;
-  --principal-color: 24, 210, 111;
-  --principal-color-rgb: 24, 210, 111;
+  --principal-color: 22, 186, 99;
+  --principal-color-rgb: 22, 186, 99;
   --border-color: 210, 210, 210;
   
 }
@@ -108,4 +108,8 @@ mark {
       rgba($principal-color-rgb, .2)
     );
   }
+}
+
+.scroll-hidden{
+  overflow: hidden !important;
 }
