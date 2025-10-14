@@ -75,6 +75,10 @@
             border: solid 2px rgb($border-color);
             border-radius: 4px;
             transition: border 0.3s ease-in-out;
+            max-width: 342px;
+            transform: translateZ(0);
+            will-change: transform, opacity;
+
 
             .img_container {
                 position: relative;
@@ -297,6 +301,7 @@
 
 @media (min-width: 713px) {
     .missions {
+        
         .card_focus_container{
             display: grid;
             place-content: center;
@@ -348,6 +353,11 @@
                 justify-content: center;
                 flex-wrap: wrap;
             }
+            
+            .card {
+                max-width: none;
+            }
+        
 
             .shell {
                 h5 {

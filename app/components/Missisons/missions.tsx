@@ -6,7 +6,7 @@ import { MdLanguage } from "react-icons/md";
 import { LuGithub } from "react-icons/lu";
 import * as motion from "motion/react-client";
 import { AnimatePresence } from "motion/react";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Image from "next/image";
 
 const projects = [
@@ -78,7 +78,7 @@ export default function Missions() {
   
 //   const root = document.documentElement || document.body;
 
-  const addClassCardFocus = (id: string) => {
+  const addClassCardFocus = useCallback((id: string) => {
     setSelectedId(id);
     const cardFocus = document.getElementById("card_focus");
     // root.classList.add("scroll-hidden");
@@ -86,7 +86,7 @@ export default function Missions() {
       console.log(cardFocus.classList);
       cardFocus.classList.add(`card${id}`);
     }
-  };
+  }, []);
 
   const removeClassCardFocus = () => {
     setSelectedId(null);
@@ -97,6 +97,10 @@ export default function Missions() {
       setSelectedId(null);
     }
   };
+
+  const handleClick = useCallback((id: string) => {
+    addClassCardFocus(id);
+  }, [addClassCardFocus]);
   
 
   return (
@@ -107,32 +111,30 @@ export default function Missions() {
       <mark>MISSIONS</mark>
       <p>A.K.A. PROJECTS (tap to see more)</p>
 
-      <motion.div className={styles.cards_container}>
+      <div className={styles.cards_container}>
         <div className={styles.cards1}>
           <motion.div
             initial={{
               opacity: 0,
               x: -100,
             }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-              transition: { duration: 1 },
-            }}
-            viewport={{ once: true }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
             key={projects[0].id}
             layoutId={projects[0].id}
             layout
             className={styles.card}
-            onClick={() => addClassCardFocus(projects[0].id)}
+            onClick={() => handleClick(projects[0].id)}
           >
             <div className={styles.img_container}>
               <Image
                 className={styles.card1_img}
                 alt={projects[0].title}
                 src={projects[0].img}
-                width={1000}
-                height={600}
+                width={500}
+                height={301}
+                loading="lazy"
               />
               <motion.div className={styles.links_icon_container}>
                 <a title="github" target="blank" href={projects[0].github}>
@@ -156,24 +158,22 @@ export default function Missions() {
                   opacity: 0,
                   x: -100,
                 }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                  transition: { duration: 1 },
-                }}
-                viewport={{ once: true }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.3 }}
                 key={project.id}
                 layout
                 layoutId={project.id}
                 className={styles.card}
-                onClick={() => addClassCardFocus(project.id)}
+                onClick={() => handleClick(project.id)}
               >
                 <div className={styles.img_container}>
                   <Image
                     alt={project.title}
                     src={project.img}
-                    width={1000}
-                    height={600}
+                    width={500}
+                    height={301}
+                    loading="lazy"
                   />
                   <motion.div className={styles.links_icon_container}>
                     <a title="github" target="blank" href={project.github}>
@@ -206,17 +206,14 @@ export default function Missions() {
                 opacity: 0,
                 x: 100,
               }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-                transition: { duration: 1 },
-              }}
-              viewport={{ once: true }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3  }}
               key={project.id}
               layout
               layoutId={project.id}
               className={styles.card}
-              onClick={() => addClassCardFocus(project.id)}
+              onClick={() => handleClick(project.id)}
             >
               <div className={styles.img_container}>
                 <Image
@@ -224,6 +221,7 @@ export default function Missions() {
                   src={project.img}
                   width={1000}
                   height={600}
+                  loading="lazy"
                 />
                 <motion.div className={styles.links_icon_container}>
                   <a title="frontend" target="blank" href={project.github}>
@@ -262,12 +260,9 @@ export default function Missions() {
               opacity: 0,
               x: 100,
             }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-              transition: { duration: 1 },
-            }}
-            viewport={{ once: true }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }} 
+            viewport={{ once: true, amount: 0.3  }}
             className={styles.shell}
           >
             <h5>shell</h5>
@@ -281,7 +276,7 @@ export default function Missions() {
             </div>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
 
       <AnimatePresence>
         {selectedId && (
@@ -312,8 +307,9 @@ export default function Missions() {
                 <Image
                   alt={projects[parseInt(selectedId) - 1].title}
                   src={projects[parseInt(selectedId) - 1].img}
-                  width={2000}
-                  height={1200}
+                  width={1000}
+                  height={600}
+                  loading="lazy"
                 />
               )}
               <div className={styles.card_description}>

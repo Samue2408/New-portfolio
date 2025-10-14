@@ -7,6 +7,7 @@ import { FaQuestion } from "react-icons/fa6";
 import { RiLinkedinBoxFill } from "react-icons/ri";
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import * as motion from "motion/react-client";
 
 export default function Pingme() {
   const form = useRef<HTMLFormElement>(null);
@@ -37,7 +38,7 @@ export default function Pingme() {
     }
   };
   return (
-    <section className={styles.pingme} id="pingme">
+    <motion.section className={styles.pingme} id="pingme">
       <div className={styles.details}>
         <mark>PING ME</mark>
         <h3>
@@ -126,6 +127,6 @@ export default function Pingme() {
           <button type="submit">Send message</button>
         </div>
       </form>
-    </section>
+    </motion.section>
   );
 }
