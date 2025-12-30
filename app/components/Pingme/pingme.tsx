@@ -56,7 +56,7 @@ export default function Pingme() {
           </a>
           <div>
             <small>Email</small>
-            <big>samuelmaldonadom@gmail.com</big>
+            <big>ing.maldonadom@outlook.com</big>
           </div>
         </div>
 
@@ -66,7 +66,7 @@ export default function Pingme() {
           </a>
           <div>
             <small>Location</small>
-            <big>Barranquilla, Colombia</big>
+            <big>Colombia</big>
           </div>
         </div>
 
